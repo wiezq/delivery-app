@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+  <title>Bansi</title>
+</head>
+
+<body>
+<div class="sign_cont">
+  <form th:action="@{/login}" method="post">
+    <h1>Вход</h1>
+    <div id="form_cont_sign_in">
+      <label for="">Username:
+        <input type="text" name="username" id="" placeholder="username" >
+      </label>
+      <label for="">Пароль:
+        <input type="password" name="password" id="" placeholder="xxxxxxxx">
+      </label>
+    </div>
+    <input id="submit_button" type="submit" value="Войти">
+    <a th:href="@{/registration}"><input id="back_btn" value="Регистрация" type="button"></input></a>
+  </form>
+</div>
+</body>
+
+</html>

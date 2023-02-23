@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+
+    <title>Bansi</title>
+</head>
+
+<body>
+<div class="menu_cont">
+
+    <div class="left_menu">
+        <div id="logo_menu">
+            <a th:href="@{/home}"><img src="/images/logo.png"></a>
+            Bansi
+        </div>
+        <div id="menu_line"></div>
+        <div id="menu_select">
+            <ul>
+                <li><a th:href="@{/category/SALAD}">Салаты и закуски</a></li>
+                <li><a th:href="@{/category/SOUP}">Супы</a></li>
+                <li><a th:href="@{/category/SUSHI}">Суши, роллы</a></li>
+                <li><a th:href="@{/category/PORK}">Блюда из свинины</a></li>
+                <li><a th:href="@{/category/BEEF}">Блюда с говядиной</a></li>
+                <li><a th:href="@{/category/CHICKEN}">Блюда с курицей</a></li>
+                <li><a th:href="@{/category/KOREAN_NOODLES}">Лапша корейская</a></li>
+                <li><a th:href="@{/category/DISHES_WITH_RICE}">Блюда с рисом</a></li>
+                <li><a th:href="@{/category/SEA_FOOD}">Морепродукты</a></li>
+                <li><a th:href="@{/category/DESSERT}">Десерты</a></li>
+                <li><a th:href="@{/category/DRINKS}">Напитки</a></li>
+            </ul>
+        </div>
+        <div id="menu_line"></div>
+        <li id="cart_button"><a th:href="@{/cart}">Корзина</a></li>
+    </div>
+
+    <div class="product_cont">
+
+        <div id="product" th:each="item : ${items}">
+            <div id="product_img"><img th:src="${item.getImgURL()}"></div>
+            <div id="data">
+                <div id="product_name" th:text="${item.getName()}">Краткое описание</div>
+                <div id="product_info" th:text="${item.getDescription()}">
+                    Описание для раскрытия дополнительных
+                    деталей
+                </div>
+                <div id="product_price" th:text="${item.getPrice()}">150 ₽/шт.</div>
+                <div class="purchase_btn">
+                    <a th:href="@{'/item/add/' + ${item.id}}">Добавить</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+
+<script>
+    function myFunc(event) {
+        fetch(`item/add/${event.currentTarget.class}`).then(() => {
+            console.log("jija")
+        })
+    }
+</script>
+
+</html>

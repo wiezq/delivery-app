@@ -7,7 +7,7 @@ spring:
   datasource:
     username: user
     password: 1234
-    url: jdbc:postgresql://localhost:5432/registration
+    url: jdbc:postgresql://localhost:5432/postgres
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -16,3 +16,7 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+
+#logging:
+#  level:
+#    web: debug
