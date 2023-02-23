@@ -1,10 +1,10 @@
-FROM maven:3.6.0-jdk-11-slim AS build
+FROM maven:3.8.3-openjdk-17 AS build
 COPY src /home/app/src
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
 
-FROM openjdk:17
+FROM openjdk:17-jdk-slim
 COPY --from=build /home/app/target/delivery-app.jar /usr/local/lib/delivery-app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/delivery-app.jar"]
