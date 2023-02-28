@@ -12,6 +12,23 @@
 </head>
 
 <body>
+
+<div id="header">
+    <div id="info">
+        <p>г. Москва, Берзарина, д. 78</p>
+        <p>8 (800) 000-00-00</p>
+    </div>
+    <div id="logo">
+        <a th:href="@{/home}"><img src="/images/logo.png"></a>
+        Bansi
+    </div>
+    <div id="reg">
+        <a>Профиль</a>
+        <a th:href="@{/cart}">Корзина</a>
+        <a th:href="@{/logout}">Выход</a>
+    </div>
+</div>
+<div class="line"></div>
 <div class="menu_cont">
 
     <div class="left_menu">
@@ -36,7 +53,7 @@
             </ul>
         </div>
         <div id="menu_line"></div>
-        <li id="cart_button"><a th:href="@{/cart}">Корзина</a></li>
+        <li id="cart_button"></li>
     </div>
 
     <div class="product_cont">
@@ -59,6 +76,7 @@
 
     </div>
 </div>
+<p th:text="${auth}"></p>
 </body>
 
 <script>

@@ -58,6 +58,8 @@ public class AppController {
 
     @RequestMapping("/login")
     public String login(){
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());
+
         return "login";
     }
 
