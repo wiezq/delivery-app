@@ -2,21 +2,14 @@ package com.example.delivery.app.Model;
 
 import com.example.delivery.app.Enum.Role;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 
 @Entity
@@ -37,11 +30,14 @@ public class AppUser implements UserDetails {
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Cart cart;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private DeliveryAddress deliveryAddress;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Order> orderSet = Set.of();
 
     public AppUser() {
     }
@@ -162,6 +158,15 @@ public class AppUser implements UserDetails {
 
     public AppUser setDeliveryAddress(DeliveryAddress deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
+        return this;
+    }
+
+    public Set<Order> getOrderSet() {
+        return orderSet;
+    }
+
+    public AppUser setOrderSet(Set<Order> orderSet) {
+        this.orderSet = orderSet;
         return this;
     }
 }

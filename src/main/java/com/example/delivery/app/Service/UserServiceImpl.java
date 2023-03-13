@@ -1,10 +1,13 @@
 package com.example.delivery.app.Service;
 
+import com.example.delivery.app.DTO.InformationDTO;
 import com.example.delivery.app.DTO.UserDTO;
 import com.example.delivery.app.Exception.UselAlreadyExistsException;
 import com.example.delivery.app.Model.AppUser;
+import com.example.delivery.app.Model.DeliveryAddress;
 import com.example.delivery.app.Repository.AppUserRepository;
 import com.example.delivery.app.Repository.CartRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -29,31 +32,14 @@ public class UserServiceImpl implements UserDetailsService {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    private Boolean emailExists(String email){
+    private Boolean emailExists(String email) {
         return userRepository.findByEmail(email).isPresent();
     }
 
     public AppUser save(UserDTO userDTO) throws UselAlreadyExistsException {
-        if(emailExists(userDTO.getEmail())){
+        if (emailExists(userDTO.getEmail())) {
             throw new UselAlreadyExistsException("User with email: " + userDTO.getEmail() + " already exists");
         }
-
-//        Cart cart = new Cart();
-
-//        AppUser appUser = new AppUser(
-//                userDTO.getFirstName(),
-//                userDTO.getLastName(),
-//                userDTO.getEmail(),
-//                bCryptPasswordEncoder.encode(userDTO.getPassword()),
-//                userDTO.getPhoneNumber(),
-//                Role.USER,
-//                cartRepository.save(cart)
-//        );
-
-
-//        cart.setAppUser(appUser);
-
-
 
         AppUser appUser = new AppUser();
         appUser
@@ -83,5 +69,32 @@ public class UserServiceImpl implements UserDetailsService {
                 .orElseThrow(
                         () -> new UsernameNotFoundException("User with email " + email + " not found")
                 );
+    }
+
+
+    public AppUser getCurrentUser() {
+        return findByEmail(
+                SecurityContextHolder
+                        .getContext()
+                        .getAuthentication()
+                        .getName());
+    }
+
+    public void saveDeliveryAddress(InformationDTO informationDTO) {
+        AppUser appUser = getCurrentUser();
+        appUser.setDeliveryAddress(
+                new DeliveryAddress()
+                        .setAppUser(appUser)
+                        .setStreet(informationDTO.getStreet())
+                        .setAptNumber(informationDTO.getAptNumber())
+                        .setEntrence(informationDTO.getEntrance())
+                        .setFloor(informationDTO.getFloor())
+                        .setComment(informationDTO.getComment())
+        );
+        userRepository.save(appUser);
+    }
+
+    public void update(AppUser currentUser) {
+        userRepository.save(currentUser);
     }
 }

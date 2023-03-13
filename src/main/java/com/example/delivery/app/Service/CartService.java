@@ -23,12 +23,7 @@ public class CartService {
     private final CartItemRepository cartItemRepository;
 
     public List<CartItem> getCartItems() {
-        AppUser appUser = userService.findByEmail(
-                SecurityContextHolder
-                        .getContext()
-                        .getAuthentication()
-                        .getName()
-        );
+        AppUser appUser = userService.getCurrentUser();
         return appUser
                 .getCart()
                 .getCartItems()
@@ -40,12 +35,7 @@ public class CartService {
     }
 
     public Long getTotalPrice() {
-        AppUser appUser = userService.findByEmail(
-                SecurityContextHolder
-                        .getContext()
-                        .getAuthentication()
-                        .getName()
-        );
+        AppUser appUser = userService.getCurrentUser();
 
         Long totalPrice = 0L;
 

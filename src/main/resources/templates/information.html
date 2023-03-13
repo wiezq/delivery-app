@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+  <title>Bansi</title>
+</head>
+
+<body>
+<div class="sign_cont">
+
+
+  <form th:action="@{/information}" method="post" th:object="${information}">
+    <h1>Укажите адрес доставки</h1>
+    <div id="form_cont">
+      <label for="street">Улица:
+        <input type="text" name="" id="street" placeholder="Введите улицу" th:field="*{street}"
+               required
+               autofocus="autofocus">
+      </label>
+      <label for="aptNumber">Квартира:
+        <input type="number" name="" id="aptNumber" placeholder="Номер квартиры" th:field="*{aptNumber}"
+               required
+               autofocus="autofocus">
+      </label>
+      <label for="entrance">Подьезд:
+        <input type="number" name="" id="entrance" placeholder="Номер подьезда" th:field="*{entrance}"
+               required
+               autofocus="autofocus">
+      </label>
+      <label for="floor">Этаж:
+        <input type="number" name="" id="floor" placeholder="Этаж" th:field="*{floor}"
+               required
+               autofocus="autofocus">
+      </label>
+      <label for="comment">Комментарий:
+        <input type="text" name="" id="comment" placeholder="Комментарий" th:field="*{comment}"
+               required
+               autofocus="autofocus">
+      </label>
+    </div>
+    <input id="submit_button" type="submit" value="Подтвердить">
+  </form>
+</div>
+</body>
+
+</html>

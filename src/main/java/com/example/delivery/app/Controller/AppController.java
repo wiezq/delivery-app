@@ -1,6 +1,7 @@
 package com.example.delivery.app.Controller;
 
 
+import com.example.delivery.app.DTO.InformationDTO;
 import com.example.delivery.app.Enum.Category;
 import com.example.delivery.app.Model.CartItem;
 import com.example.delivery.app.Model.Item;
@@ -11,9 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +24,8 @@ public class AppController {
     private final ItemService itemService;
 
     private final CartService cartService;
+
+
 
     @GetMapping("/*")
     public String defaultPath(){

@@ -16,7 +16,7 @@ public class DeliveryAddress {
 
     private Integer aptNumber;
 
-    private Integer entrence;
+    private Integer entrance;
     private Integer floor;
 
     private String comment;
@@ -40,7 +40,7 @@ public class DeliveryAddress {
     }
 
     public Integer getEntrence() {
-        return entrence;
+        return entrance;
     }
 
     public Integer getFloor() {
@@ -66,7 +66,7 @@ public class DeliveryAddress {
     }
 
     public DeliveryAddress setEntrence(Integer entrence) {
-        this.entrence = entrence;
+        this.entrance = entrence;
         return this;
     }
 

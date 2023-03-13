@@ -57,7 +57,9 @@
                 <div id="check_info">Итого к оплате:</div>
                 <div id="check_total_price" th:text="${totalPrice + '₽'}">450 ₽</div>
             </div>
-            <input type="button" value="Оформить заказ" id="submit_purchase_btn"> 
+            <div class="purchase_btn">
+                <a th:href="@{/order/make}">Добавить</a>
+            </div>
         </div>
     </div>
 

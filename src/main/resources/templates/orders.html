@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/style.css" rel="stylesheet"/>
+
+    <title>Bansi</title>
+</head>
+
+<body>
+<div id="header">
+    <div id="info">
+        <p>г. Москва, Берзарина, д. 78</p>
+        <p>8 (800) 000-00-00</p>
+    </div>
+    <div id="logo">
+        <a th:href="@{/home}"><img src="/images/logo.png"></a>
+        Bansi
+    </div>
+    <div id="reg">
+        <a>Профиль</a>
+        <a th:href="@{/logout}">Выход</a>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="cart_cont">
+    <p th:if="${orders.size() == 0}">У вас нет заказов</p>
+
+    <div id="pos_cont" th:if="${orders.size() > 0}" th:each="order : ${orders}">
+        <p th:text="${order.getLocalDate()}"></p>
+        <div id="amnt" th:text="${order.getOrderItemSet().size()}">1</div>
+        <div id="purchase_cont">
+            <div id="check">
+                <div id="check_info">Стоимость</div>
+                <div id="check_total_price" th:text="${order.getTotalPrice()}">450 ₽</div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+</body>
+
+</html>

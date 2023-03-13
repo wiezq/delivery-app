@@ -24,7 +24,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void setItems() {
         if(itemRepository.findAll().isEmpty()) {
             List<Item> items = List.of(
-                    new Item(Category.SALAD.name(), "1", Category.SALAD, 101L),
+                    new Item("logo", "Описание", Category.SALAD, 101L),
                     new Item(Category.SOUP.name(), "2", Category.SOUP, 102L),
                     new Item(Category.SUSHI.name(), "3", Category.SUSHI, 103L),
                     new Item(Category.PORK.name(), "4", Category.PORK, 104L),

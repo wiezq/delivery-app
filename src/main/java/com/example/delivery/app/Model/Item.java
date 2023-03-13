@@ -35,7 +35,7 @@ public class Item {
         this.description = description;
         this.category = category;
         this.price = price;
-        this.imgURL = "/images/" + "logo" + ".png";
+        this.imgURL = "/images/" + name + ".png";
     }
 
 
