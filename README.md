@@ -1,5 +1,3 @@
-# delivery-app
-"Rename folder to delivery-app"(bug)
 
 To run application you need docker installed in your computer
 
