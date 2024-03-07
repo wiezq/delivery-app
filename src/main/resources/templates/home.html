@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/css/style.css" rel="stylesheet" />
+
+  <title>Bansi</title>
+</head>
+
+<body>
+<div id="header">
+  <div id="info">
+    <p>г. Москва, Берзарина, д. 78</p>
+    <p>8 (800) 000-00-00</p>
+  </div>
+  <div id="logo">
+    <a th:href="@{/home}"><img src="/images/logo.png"></a>
+    Bansi
+  </div>
+  <div id="reg">
+    <a th:href="@{/signup}">Регистрация</a>
+    <a th:href="@{/login}">Вход</a>
+  </div>
+</div>
+
+<div class="line"></div>
+
+<div id="select">
+  <div id="menu"><a th:href="@{/menu}">Меню</a></div>
+  <div id="cart"><a th:href="@{/cart}">Корзина</a></div>
+</div>
+
+<div id="slider">
+  <div id="button_slider"></div>
+  <div id="button_slider"></div>
+</div>
+</body>
+
+</html>

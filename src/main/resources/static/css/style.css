@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+
+a {
+    text-decoration: none;
+    color: #2E363E
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #2E363E
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    font-size: 22px;
+    height: 262px;
+    align-items: center;
+}
+
+#header>div {
+    display: flex;
+    flex-direction: column;
+    width: 452px;
+}
+
+#logo>a>img {
+    width: 150px;
+}
+
+#logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 40px;
+    color: #de9c00;
+    margin-left: 73px;
+    margin-right: 73px;
+}
+
+#reg {
+    align-items: flex-end;
+}
+
+#info {
+    align-items: flex-start;
+}
+
+#reg,
+#info {
+    height: 92px;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.line {
+    background-color: #7e868e5b;
+    width: 1756px;
+    height: 1px;
+    margin-top: 40px;
+    margin-left: 82px;
+    margin-right: 82px;
+}
+
+#select {
+    padding: 16px;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+
+#menu,
+#cart {
+    text-align: center;
+    width: 130px;
+}
+
+#menu {
+    margin-right: 72px;
+}
+
+#slider {
+    display: flex;
+    background-color: #d8d8d9;
+    width: 1756px;
+    height: 649px;
+    margin-left: 82px;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 56px;
+}
+
+#button_slider {
+    width: 56px;
+    height: 82px;
+    background-color: #9E9E9E;
+}
+
+.menu_cont {
+    display: flex;
+    flex-direction: row;
+}
+
+.left_menu {
+    margin-top: 27px;
+    font-size: 22px;
+    padding: 20px;
+    width: 286px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #7e868e5b;
+}
+
+#menu_line {
+    background-color: #7e868e5b;
+    height: 1px;
+}
+
+ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+li {
+    list-style: none;
+    padding: 10px;
+}
+
+#logo_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 40px;
+    color: #de9c00;
+    margin-bottom: 50px;
+}
+
+#logo_menu>a>img {
+    width: 150px;
+}
+
+#cart_button {
+    margin-top: 30px;
+}
+
+.product_cont {
+    width: 1434px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 77px;
+    margin-top: 55px;
+    margin-right: 104px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-content: space-between;
+}
+
+#product {
+    background-color: #fff;
+    width: 340px;
+    height: 570px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+#product_img {
+    border-radius: 10px;
+    background-color:#F2F6FA;
+    height: 262px;
+}
+
+#product_img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#data {
+    padding: 50px 44px;
+}
+
+#product_name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+#product_info {
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+#product_price {
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+
+.purchase_btn {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    width: 169px;
+    padding: 20px 38px;
+    background: #E6BE7E;
+    border-radius: 8px;
+}
+
+.sign_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 825px;
+    height: 636px;
+}
+
+#form_cont {
+    display: flex;
+    flex-direction: row ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+input {
+    margin-top: 10px;
+    width: 336px;
+    height: 51px;
+    outline: none;
+    border: none;
+    background: #EEEEEE;
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 14px;
+}
+
+label {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin-bottom: 55px;
+}
+
+#submit_button {
+    text-align: center;
+    width: 200px;
+    height: 67px;
+    font-size: 18px;
+    color: white;
+    background-color:#E6BE7E;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 55px;
+}
+
+#back_btn {
+    text-align: center;
+    width: 200px;
+    height: 67px;
+    font-size: 18px;
+    color: #E6BE7E;
+    background-color:white;
+    border: 2px solid #E6BE7E;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 55px;
+}
+
+#form_cont_sign_in {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cart_cont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 44px 82px
+}
+
+#pos_cont {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+#cart_product {
+    height: 200px;
+    border: 1px solid #7e868e5b;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1090px;
+}
+
+#cart_product_image {
+    display: flex;
+    align-items: center;
+}
+
+#cart_product_image > img {
+    width: 240px;
+    height: 190px;
+    object-fit: cover;
+}
+
+#cart_product_info {
+    margin-left: 44px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cart_product_name {
+    font-size: 24px;
+    font-weight:bold;
+    margin-bottom: 16px;
+}
+
+#cart_product_details {
+    font-size: 16px;
+}
+
+#cart_product_line {
+    margin-left: 87px;
+    height: 135px;
+    width: 1px;
+    background: #7e868e5b;
+}
+
+#cart_product_price {
+    margin-left: 100px;
+    font-size: 32px;
+}
+
+#amnt_cont {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#cart_amnt_btn {
+    margin: 0;
+    padding: 0;
+    width: 140px;
+    height: 37px;
+    font-size: 32px;
+    border: 1px solid #7e868e5b;
+    background: none;
+    font-weight: medium;
+    cursor: pointer;
+}
+
+#amnt {
+    font-size: 36px;
+    font-weight:medium;
+}
+
+#total_cont {
+    width: 290px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: medium;
+    border-radius: 10px;
+    border: 1px solid #7e868e5b;
+}
+
+#purchase_cont {
+    margin-top: 120px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#check {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1273px;
+    border: 1px solid #7e868e5b;
+    border-radius: 10px;
+}
+
+#check_info {
+    padding: 44px;
+    font-size: 24px;
+    font-weight:bold;
+}
+
+#check_total_price {
+    padding: 37px 95px;
+    font-size: 32px;
+    font-weight: medium;
+}
+
+#submit_purchase_btn {
+    margin: 0;
+    padding: 0;
+    background: #e6be7e;
+    color:white;
+    height: 118px;
+    font-size: 24px;
+}

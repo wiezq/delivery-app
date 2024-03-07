@@ -1,7 +1,23 @@
 version: '3.5'
 
 services:
-  postgres:
+  webapp:
+    build: ./
+    container_name: webapp
+    networks:
+      - order-psql
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://psql:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=1234
+    depends_on:
+      - psql
+    restart: on-failure
+
+
+  psql:
     container_name: postgres_delivery_container
     image: postgres
     environment:
@@ -13,29 +29,11 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - postgres
-    restart: unless-stopped
-
-  pgadmin:
-    container_name: pgadmin_delivery_container
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
-    volumes:
-      - pgadmin:/var/lib/pgadmin
-
-    ports:
-      - "${PGADMIN_PORT:-5050}:80"
-    networks:
-      - postgres
+      - order-psql
     restart: unless-stopped
 
 networks:
-  postgres:
-    driver: bridge
+  order-psql:
 
 volumes:
   postgres:
-  pgadmin:

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <title>Bansi</title>
+</head>
+
+<body>
+    <div class="sign_cont">
+
+        <div th:if="${param.success}">
+            <div class="alert alert-info">You've successfully registered
+                to our awesome app!</div>
+        </div>
+        <div th:if="${param.error}">
+            <div class="alert alert-info">User already exists</div>
+        </div>
+
+        <form th:action="@{/registration}" method="post" th:object="${user}">
+            <h1>Регистрация</h1>
+            <div id="form_cont">
+                <label for="firstName">Имя:
+                    <input type="text" name="" id="firstName" placeholder="Введите свое имя" th:field="*{firstName}"
+                           required
+                           autofocus="autofocus">
+                </label>
+                <label for="lastName">Фамилия:
+                    <input type="text" name="" id="lastName" placeholder="Введите свою фамилию" th:field="*{lastName}"
+                           required
+                           autofocus="autofocus">
+                </label>
+                <label for="email">Почта:
+                    <input type="email" name="" id="email" placeholder="info@yandex.ru" th:field="*{email}"
+                           required
+                           autofocus="autofocus">
+                </label>
+                <label for="phoneNumber">Номер телефона:
+                    <input type="tel" name="" id="phoneNumber" placeholder="+7 (   )    -  -" th:field="*{phoneNumber}"
+                           required
+                           autofocus="autofocus">
+                </label>
+                <label for="password">Пароль:
+                    <input type="password" name="" id="password" placeholder="xxxxxxxx" th:field="*{password}"
+                           required
+                           autofocus="autofocus">
+                </label>
+            </div>
+            <input id="submit_button" type="submit" value="Регистрация">
+            <a th:href="@{/login}"><input id="back_btn" value="Войти" type="button"></input></a>
+        </form>
+    </div>
+</body>
+
+</html>
